@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<section class="py-5 bg-white" style="margin-top: 80px;">
+    <div class="container py-5">
+        <div class="text-center mb-5 scroll-animate">
+            <span class="text-primary-red fw-bold text-uppercase tracking-wider">Visual Assets Portfolio</span>
+            <h1 class="display-4 fw-bold mt-2">Honoring Memories In Action</h1>
+            <p class="lead text-muted mx-auto" style="max-width: 600px;">Review our premium equipment assets, high-grade transportation fleets, and professional layouts configured across setups.</p>
+            <div class="mx-auto bg-gold mt-3; height: 3px;" style="width: 60px;"></div>
+        </div>
+
+        <partial name="_GalleryPartial" />
+
+        <div class="row mt-2">
+            <div class="col-lg-4 col-md-6 scroll-animate">
+                <div class="gallery-hover-container">
+                    <img src="images/funeral-banner.jpeg" alt="High grade polished wooden casket presentation model" />
+                    <div class="gallery-overlay-pane">
+                        <span class="badge bg-gold text-dark align-self-start mb-2">Caskets</span>
+                        <h5 class="text-white mb-0">Premium Polished Dome Caskets</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-animate">
+                <div class="gallery-hover-container">
+                    <img src="images/funeral-banner.jpeg" alt="Mampara premium bricks delivery for grave builders setup layout" />
+                    <div class="gallery-overlay-pane">
+                        <span class="badge bg-gold text-dark align-self-start mb-2">Infrastructure</span>
+                        <h5 class="text-white mb-0">Mampara Bricks & Grave Building Materials</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 scroll-animate">
+                <div class="gallery-hover-container">
+                    <img src="images/funeral-banner.jpeg" alt="Luxury family support transport fleet carks" />
+                    <div class="gallery-overlay-pane">
+                        <span class="badge bg-gold text-dark align-self-start mb-2">Family Fleet</span>
+                        <h5 class="text-white mb-0">Premium Luxury Sedan Family Transport Fleet</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="galleryViewComponentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-transparent border-0 text-end">
+            <button type="button" class="btn-close btn-close-white ms-auto mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body p-0 text-center">
+                <img src="images/funeral-banner.jpeg" id="modalViewportTargetImage" class="img-fluid rounded shadow-lg" alt="Target Viewport Render Element" style="max-height: 85vh; width: auto; display: inline-block;" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            $('.gallery-hover-container img').css('cursor', 'pointer').on('click', function() {
+                var targetSrc = $(this).attr('src');
+                var targetAlt = $(this).attr('alt');
+                $('#modalViewportTargetImage').attr('src', targetSrc).attr('alt', targetAlt);
+                var myModal = new bootstrap.Modal(document.getElementById('galleryViewComponentModal'));
+                myModal.show();
+            });
+        });
+    </script>
+}

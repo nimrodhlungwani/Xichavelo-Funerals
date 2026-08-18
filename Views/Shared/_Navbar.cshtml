@@ -1,0 +1,24 @@
+﻿<nav class="navbar navbar-expand-lg navbar-premium fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+            <span class="fw-bold fs-3 tracking-tight text-primary-red">XICHAVELO</span>
+            <span class="ms-2 fw-light fs-4 text-dark d-none d-sm-inline">FUNERALS</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMainSystem" aria-controls="navbarMainSystem" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarMainSystem">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="ServicePlans">Service Plans</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Gallery">Gallery</a></li>
+                @*<li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="FAQ">FAQ</a></li> *@
+                <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                    <a class="btn btn-gold-pill px-4 text-dark" asp-controller="Home" asp-action="JoinNow">Join Now</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

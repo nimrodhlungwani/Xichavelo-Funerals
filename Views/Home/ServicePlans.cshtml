@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Xichavelo.Web.Models.PlanViewModel>
+@{
+    Layout = "_Layout";
+}
+
+<section class="py-5 bg-light-custom" style="margin-top: 80px;">
+    <div class="container py-5">
+        <div class="text-center mb-5 scroll-animate">
+            <span class="text-primary-red fw-bold text-uppercase tracking-wider">Insurance Portfolio Packages</span>
+            <h1 class="display-4 fw-bold mt-2">Transparent, High-Value Protection Plans</h1>
+            <p class="lead text-muted mx-auto" style="max-width:650px;">Compare our structured continuous configurations below. No hidden transaction operational components.</p>
+            <div class="mx-auto bg-gold mt-3" style="width: 80px; height: 3px;"></div>
+        </div>
+
+        <div class="row g-4 justify-content-center align-items-stretch">
+            @foreach (var plan in Model)
+            {
+                <div class="col-lg-5 col-md-6 d-flex">
+                    <div class="plan-card w-100 d-flex flex-column @(plan.IsPopular ? "popular" : "") scroll-animate">
+                        @if (plan.IsPopular)
+                        {
+                            <div class="position-absolute top-0 end-0 bg-gold text-dark fw-bold px-4 py-1 small rounded-bottom-start shadow-sm" style="font-size:0.8rem; letter-spacing:1px;">MOST POPULAR SELECTION</div>
+                        }
+
+                        <div class="plan-card-header @(plan.IsPopular ? "bg-platinum-gradient" : "bg-gold-gradient")">
+                            <h3 class="fw-bold text-dark mb-1">@plan.Name</h3>
+                            <p class="text-muted small mb-3">Covers up to <strong class="text-dark">@plan.MembersCovered Members</strong> concurrently</p>
+                            <div class="d-flex align-items-baseline mb-2">
+                                <span class="fs-2 fw-semibold text-primary-red">R</span>
+                                <span class="display-3 fw-bold tracking-tight text-primary-red">@plan.Price.ToString("0")</span>
+                                <span class="text-muted ms-2">/ month</span>
+                            </div>
+                            <span class="badge bg-light text-dark border px-2 py-1 small fw-normal">@plan.HighlightedFeature</span>
+                        </div>
+
+                        <div class="p-4 flex-grow-1 d-flex flex-column justify-content-between">
+                            <ul class="feature-list">
+                                @foreach (var feature in plan.Features)
+                                {
+                                    <li>
+                                        <i class="fas @(plan.IsPopular ? "fa-check-circle text-gold" : "fa-check-circle text-danger")"></i>
+                                        <span>@feature</span>
+                                    </li>
+                                }
+                            </ul>
+
+                            <div class="border-top pt-4 mt-auto">
+                                <a asp-controller="Home" asp-action="JoinNow" asp-route-planName="@plan.Name" class="btn @(plan.IsPopular ? "btn-gold-pill" : "btn-premium-red") w-100 py-3">Select & Register Package</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="mt-5 p-4 bg-white rounded-3 border text-center mx-auto scroll-animate" style="max-width: 900px;">
+            <h5 class="fw-bold"><i class="fas fa-info-circle text-primary-red me-2"></i> Important Policy Implementation Terms</h5>
+            <div class="row text-start g-3 mt-2 small text-muted">
+                <div class="col-md-6">
+                    <strong><i class="fas fa-hourglass-half me-1"></i> Standard Waiting Period:</strong> A structured 4-Months strict waiting schedule applies to newly deployed accounts.
+                </div>
+                <div class="col-md-6">
+                    <strong><i class="fas fa-sync me-1"></i> Existing Policy Transition:</strong> Zero waiting schedule blocks apply to verified policy accounts migrating directly from other approved registered societies.
+                </div>
+                <div class="col-md-6">
+                    <strong><i class="fas fa-users me-1"></i> Identity Configurations:</strong> No rigid family surname restrictions enforced. Extended surname tracking parameters supported.
+                </div>
+                <div class="col-md-6">
+                    <strong><i class="fas fa-hammer me-1"></i> Special Infrastructure:</strong> We offer Mampara Bricks and professional grave builder options.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

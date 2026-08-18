@@ -1,0 +1,103 @@
+﻿@model Xichavelo.Web.Models.EnrollmentViewModel
+@{
+    Layout = "_Layout";
+}
+
+<section class="py-5 bg-light-custom" style="margin-top: 80px;">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-10 scroll-animate">
+                <div class="p-5 bg-white rounded-3 shadow-sm border">
+                    <div class="text-center mb-5">
+                        <span class="text-primary-red fw-bold text-uppercase tracking-wider">Policy Onboarding Form</span>
+                        <h1 class="fw-bold mt-1">Initialize Secure Family Cover</h1>
+                        <p class="text-muted">Fill out configuration properties below. A validation officer will confirm your schedule.</p>
+                        <div class="mx-auto bg-gold mt-2" style="width: 50px; height: 3px;"></div>
+                    </div>
+
+                    <form asp-controller="Home" asp-action="JoinNow" method="post" id="enrollmentFormEngine">
+                        @Html.AntiForgeryToken()
+
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label asp-for="SelectedPlan" class="form-label small fw-bold"></label>
+                                <select asp-for="SelectedPlan" class="form-select p-3 bg-light border-0">
+                                    <option value="">-- Choose Plan --</option>
+                                    <option value="Gold Plan">Gold Plan - R200/month (15 Covered)</option>
+                                    <option value="Platinum Plan">Platinum Plan - R300/month (13 Covered)</option>
+                                </select>
+                                <span asp-validation-for="SelectedPlan" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="FullName" class="form-label small fw-bold"></label>
+                                <input asp-for="FullName" class="form-control p-3 bg-light border-0" placeholder="e.g. Hlulani Clayton Mabunda" />
+                                <span asp-validation-for="FullName" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="NationalId" class="form-label small fw-bold"></label>
+                                <input asp-for="NationalId" class="form-control p-3 bg-light border-0" placeholder="Identity or Passport Code" />
+                                <span asp-validation-for="NationalId" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Phone" class="form-label small fw-bold"></label>
+                                <input asp-for="Phone" class="form-control p-3 bg-light border-0" placeholder="e.g. +27789791377" />
+                                <span asp-validation-for="Phone" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <label asp-for="Email" class="form-label small fw-bold"></label>
+                                <input asp-for="Email" type="email" class="form-control p-3 bg-light border-0" placeholder="e.g. claytonmabunda@gmail.com.com" />
+                                <span asp-validation-for="Email" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <label asp-for="PhysicalAddress" class="form-label small fw-bold"></label>
+                                <input asp-for="PhysicalAddress" class="form-control p-3 bg-light border-0" placeholder="Street Name, Stand Number, Town, Code" />
+                                <span asp-validation-for="PhysicalAddress" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="TotalDependents" class="form-label small fw-bold"></label>
+                                <input asp-for="TotalDependents" type="number" class="form-control p-3 bg-light border-0" placeholder="Count value" />
+                                <span asp-validation-for="TotalDependents" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-12 bg-light p-3 rounded-3 mt-4">
+                                <div class="form-check">
+                                    <input asp-for="AcceptTerms" type="checkbox" class="form-check-input mt-1" />
+                                    <label asp-for="AcceptTerms" class="form-check-label small text-muted">
+                                        I hereby explicitly declare acknowledgment that a standard <strong>4-month waiting logic matrix</strong> applies to newly registered family links, unless processing a verified migration bypass from another validly recognized funeral society policy schedule.
+                                    </label>
+                                </div>
+                                <span asp-validation-for="AcceptTerms" class="text-danger small d-block mt-1"></span>
+                            </div>
+
+                            <div class="col-12 pt-2">
+                                <button type="submit" class="btn btn-gold-pill w-100 py-3 text-dark text-uppercase tracking-wider fw-bold" id="enrollSubmitBtn">
+                                    Confirm and Complete Registration Process
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $('#enrollmentFormEngine').on('submit', function() {
+            if($(this).valid()) {
+                let btn = $('#enrollSubmitBtn');
+                btn.prop('disabled', true);
+                btn.html('<span class="spinner-border spinner-border-sm me-2" role="status"></span> Generating Account Schedule Data...');
+            }
+        });
+    </script>
+}
