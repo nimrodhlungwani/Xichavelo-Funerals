@@ -12,9 +12,7 @@
     --image-height: 260px;
 }
 
-html, body {
-    max-width: 100% !important;
-    overflow-x: hidden !important;
+html {
     margin: 0;
     padding: 0;
 }
