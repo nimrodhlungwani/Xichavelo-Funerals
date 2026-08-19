@@ -20,15 +20,20 @@
 </head>
 <body>
 
-    <partial name="_Navbar" />
+    <header>
+        <partial name="_Navbar" />
+    </header>
 
-    <main role="main" class="p-0 m-0">
+    <main role="main" id="main-content">
         @RenderBody()
     </main>
 
-    <partial name="_Footer" />
+    <footer>
+        <partial name="_Footer" />
+    </footer>
 
     <div class="floating-social-container">
+        <a href="#" id="scrollTopBtn" class="floating-trigger trigger-scroll-top text-decoration-none" aria-label="Scroll to Top" style="display: none;"><i class="fas fa-arrow-up"></i><span class="fab-tooltip">Back to Top</span> </a>
         <a href="https://wa.me/27789791377?text=Hello%20Xichavelo%20Team,%20I%20would%20like%20to%20inquire%20about%20a%20funeral%20plan." class="floating-trigger trigger-whatsapp text-decoration-none" target="_blank" aria-label="Chat via WhatsApp"> <i class="fab fa-whatsapp"></i> <span class="fab-tooltip">Chat via WhatsApp</span> </a>
         <a href="https://tiktok.com" class="floating-trigger trigger-tiktok text-decoration-none" target="_blank" aria-label="Follow us on TikTok"> <i class="fab fa-tiktok"></i> <span class="fab-tooltip">Follow on TikTok</span> </a>
         <a href="https://facebook.com" class="floating-trigger trigger-facebook text-decoration-none" target="_blank" aria-label="Visit Facebook Page"> <i class="fab fa-facebook-f"></i> <span class="fab-tooltip">Facebook Page</span> </a>

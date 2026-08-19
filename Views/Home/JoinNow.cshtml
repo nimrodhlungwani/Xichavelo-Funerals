@@ -1,9 +1,10 @@
 ﻿@model Xichavelo.Web.Models.EnrollmentViewModel
+
 @{
     Layout = "_Layout";
 }
 
-<section class="py-5 bg-light-custom" style="margin-top: 80px;">
+<section class="py-5 bg-light-custom">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-xl-8 col-lg-10 scroll-animate">
@@ -69,7 +70,7 @@
                                 <div class="form-check">
                                     <input asp-for="AcceptTerms" type="checkbox" class="form-check-input mt-1" />
                                     <label asp-for="AcceptTerms" class="form-check-label small text-muted">
-                                        I hereby explicitly declare acknowledgment that a standard <strong>4-month waiting logic matrix</strong> applies to newly registered family links, unless processing a verified migration bypass from another validly recognized funeral society policy schedule.
+                                        <a href="~/docs/sample.pdf" target="_blank" rel="noopener noreferrer" class="text-danger fw-bold text-decoration-none">Privacy Policy</a>, I hereby explicitly declare acknowledgment that a standard <strong>4-month waiting logic matrix</strong> applies to newly registered family links, unless processing a verified migration bypass from another validly recognized funeral society policy schedule.
                                     </label>
                                 </div>
                                 <span asp-validation-for="AcceptTerms" class="text-danger small d-block mt-1"></span>
@@ -77,7 +78,7 @@
 
                             <div class="col-12 pt-2">
                                 <button type="submit" class="btn btn-gold-pill w-100 py-3 text-dark text-uppercase tracking-wider fw-bold" id="enrollSubmitBtn">
-                                    Confirm and Complete Registration Process
+                                    Submit
                                 </button>
                             </div>
                         </div>

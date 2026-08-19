@@ -1,9 +1,10 @@
 ﻿@model Xichavelo.Web.Models.ContactViewModel
+
 @{
     Layout = "_Layout";
 }
 
-<section class="py-5 bg-light-custom" style="margin-top: 80px;">
+<section class="py-5 bg-light-custom">
     <div class="container py-5">
         <div class="text-center mb-5 scroll-animate">
             <span class="text-primary-red fw-bold text-uppercase tracking-wider">Contact Channels</span>
@@ -12,11 +13,9 @@
         </div>
 
         <div class="row g-5 align-items-stretch">
-            
-            <!-- Left Column: Corporate Contact Metrics & Map -->
+
             <div class="col-lg-4 d-flex flex-column">
-                
-                <!-- Contact Details Box -->
+
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
                     <h4 class="fw-bold mb-4 text-dark">Corporate Contact Metrics</h4>
                     
@@ -49,14 +48,12 @@
                     </div>
                 </div>
 
-                <!-- Google Maps Embed Card (Stretches to fill remaining vertical height) -->
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white flex-grow-1 min-h-250">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14631.144931835697!2d31.1275344!3d-23.9503612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec612a45d045d67%3A0x868b419b48c4155b!2sPhalaborwa!5e0!3m2!1sen!2sza!4v1716900000000!5m2!1sen!2sza" width="100%" height="100%" style="border:0; min-height: 250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14631.144931835697!2d31.1275344!3d-23.9503612!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ec612a45d045d67%3A0x868b419b48c4155b!2sPhalaborwa!5e0!3m2!1sen!2sza!4v1716900000000!5m2!1sen!2sza" style="border:0; width: 100%; height: 100%; min-height: 250px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"> </iframe>
                 </div>
 
             </div>
 
-            <!-- Right Column: Digital Message Desk Form -->
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white h-100">
                     <h3 class="fw-bold mb-4 text-dark">Transmit a Digital Message Desk</h3>
@@ -65,23 +62,23 @@
                         <div class="row g-3 mb-3">
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small">Full Name</label>
-                                <input type="text" class="form-control bg-light border-0 p-3" placeholder="e.g. Thabo Smith" required />
+                                <input type="text" class="form-control bg-light border-0 p-3" placeholder="e.g. Hlulani Clayton Mabunda" required />
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label fw-bold small">Phone Number</label>
-                                <input type="tel" class="form-control bg-light border-0 p-3" placeholder="e.g. +27789791377" required />
+                                <input type="tel" class="form-control bg-light border-0 p-3" placeholder="e.g. +277123456789" required />
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fw-bold small">Email</label>
-                            <input type="email" class="form-control bg-light border-0 p-3" placeholder="info@company.co.za" required />
+                            <input type="email" class="form-control bg-light border-0 p-3" placeholder="e.g. example@gmail.com" required />
                         </div>
 
                         <div class="mb-3">
                             <label class="form-label fw-bold small">Subject</label>
                             <select class="form-select bg-light border-0 p-3">
-                                <option selected>-- Choose Priority Subject Topic --</option>
+                                <option selected>-- Choose Priority Subject --</option>
                                 <option value="policy">Funeral Cover Policy Query</option>
                                 <option value="claim">Claim Processing Support</option>
                                 <option value="general">General Information</option>
@@ -94,7 +91,7 @@
                         </div>
 
                         <button type="submit" class="btn text-white w-100 p-3 fw-bold rounded-3" style="background-color: #8B0000;">
-                            Transmit Secure Strategy Message
+                            Submit
                         </button>
                     </form>
                 </div>
