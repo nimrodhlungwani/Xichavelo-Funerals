@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 using Xichavelo.Web.Models;
 
 namespace Xichavelo.Web.Controllers
@@ -8,32 +7,32 @@ namespace Xichavelo.Web.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Dignified Funeral & Financial Services You Can Trust";
+            ViewData["Title"] = "Home - Dignified Funeral & Financial Services You Can Trust";
             return View();
         }
 
         public IActionResult ServicePlans()
         {
-            ViewData["Title"] = "Affordable Shield Funeral Insurance Plans";
+            ViewData["Title"] = "Service Plans - Affordable Shield Funeral Insurance Plans";
             var plans = GetConfiguredPlans();
             return View(plans);
         }
 
         public IActionResult About()
         {
-            ViewData["Title"] = "Our Vision, Mission, and Compassionate Legacy";
+            ViewData["Title"] = "About - Our Vision, Mission, and Compassionate Legacy";
             return View();
         }
 
         public IActionResult Gallery()
         {
-            ViewData["Title"] = "Our Fleet, Sacred Setups & Ceremonies";
+            ViewData["Title"] = "Gallery - Our Fleet, Sacred Setups & Ceremonies";
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Title"] = "Reach Our Support Desk 24/7";
+            ViewData["Title"] = "Contact - Reach Our Support Desk 24/7";
             return View(new ContactViewModel());
         }
 
@@ -52,7 +51,7 @@ namespace Xichavelo.Web.Controllers
 
         public IActionResult JoinNow(string planName = "")
         {
-            ViewData["Title"] = "Secure Your Family Policy Application";
+            ViewData["Title"] = "Join Now - Secure Your Family Policy Application";
             var model = new EnrollmentViewModel { SelectedPlan = planName };
             return View(model);
         }
@@ -63,10 +62,10 @@ namespace Xichavelo.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["ErrorMessage"] = "Please correct all submission form parameters to proceed.";
+                TempData["ErrorMessage"] = "Join Now - Please correct all submission form parameters to proceed.";
                 return View(model);
             }
-            TempData["SuccessMessage"] = "Application registered successfully! Our system is generating your invoice schedule.";
+            TempData["SuccessMessage"] = "Join Now - Application registered successfully! Our system is generating your invoice schedule.";
             return RedirectToAction(nameof(Index));
         }
 
