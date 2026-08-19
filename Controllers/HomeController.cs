@@ -7,32 +7,32 @@ namespace Xichavelo.Web.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Title"] = "Home - Dignified Funeral & Financial Services You Can Trust";
+            ViewData["Title"] = "Home";
             return View();
         }
 
         public IActionResult ServicePlans()
         {
-            ViewData["Title"] = "Service Plans - Affordable Shield Funeral Insurance Plans";
+            ViewData["Title"] = "Service Plans";
             var plans = GetConfiguredPlans();
             return View(plans);
         }
 
         public IActionResult About()
         {
-            ViewData["Title"] = "About - Our Vision, Mission, and Compassionate Legacy";
+            ViewData["Title"] = "About";
             return View();
         }
 
         public IActionResult Gallery()
         {
-            ViewData["Title"] = "Gallery - Our Fleet, Sacred Setups & Ceremonies";
+            ViewData["Title"] = "Gallery";
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Title"] = "Contact - Reach Our Support Desk 24/7";
+            ViewData["Title"] = "Contact";
             return View(new ContactViewModel());
         }
 
@@ -42,16 +42,16 @@ namespace Xichavelo.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["ErrorMessage"] = "Validation failed. Please verify submission values.";
+                TempData["ErrorMessage"] = "Error on Contact Page";
                 return View(model);
             }
-            TempData["SuccessMessage"] = "Your request has reached our operations desk. A consultant will call you back shortly.";
+            TempData["SuccessMessage"] = "Success on Contact Page";
             return RedirectToAction(nameof(Contact));
         }
 
         public IActionResult JoinNow(string planName = "")
         {
-            ViewData["Title"] = "Join Now - Secure Your Family Policy Application";
+            ViewData["Title"] = "Join Now";
             var model = new EnrollmentViewModel { SelectedPlan = planName };
             return View(model);
         }
@@ -62,10 +62,10 @@ namespace Xichavelo.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                TempData["ErrorMessage"] = "Join Now - Please correct all submission form parameters to proceed.";
+                TempData["ErrorMessage"] = "Error Join Now Page";
                 return View(model);
             }
-            TempData["SuccessMessage"] = "Join Now - Application registered successfully! Our system is generating your invoice schedule.";
+            TempData["SuccessMessage"] = "Success Join Now Page";
             return RedirectToAction(nameof(Index));
         }
 
