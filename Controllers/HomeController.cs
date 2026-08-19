@@ -70,12 +70,6 @@ namespace Xichavelo.Web.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        public IActionResult FAQ()
-        {
-            ViewData["Title"] = "Frequently Asked Questions";
-            return View();
-        }
-
         private List<PlanViewModel> GetConfiguredPlans()
         {
             return new List<PlanViewModel>
